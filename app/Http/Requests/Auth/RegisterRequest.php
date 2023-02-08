@@ -36,19 +36,19 @@ class RegisterRequest extends FormRequest
      *
      * @return array
      */
-    public function messages()
-    {
-        return [
-            "name.required" => "The name is required",
-            "name.max" => "Max name 255 characters",
-            "email.required" => "The email is required",
-            "email.email" => "Email without correct format",
-            "email.max" => "Max email require 255 characters",
-            "email.min" => "Min email require 6 characters",
-            "email.unique" => "The email was registered before",
-            "password.required" => "The password is required",
-            "password.min" => "The password must be 8 characters",
-            // "password.confirmed" => "The passwords are not the same"
-        ];
-    }
+    // public function messages()
+    // {
+    //     return [
+    //         "name.required" => "The name is required",
+    //         "name.max" => "Max name 255 characters",
+    //         "email.required" => "The email is required",
+    //         "email.email" => "Email without correct format",
+    //         "email.max" => "Max email require 255 characters",
+    //         "email.min" => "Min email require 6 characters",
+    //         "email.unique" => "The email was registered before",
+    //         "password.required" => "The password is required",
+    //         "password.min" => "The password must be 8 characters",
+    //         // "password.confirmed" => "The passwords are not the same"
+    //     ];
+    // }
 }

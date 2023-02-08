@@ -34,12 +34,12 @@ class LoginRequest extends FormRequest
      *
      * @return array
      */
-    public function messages()
-    {
-        return [
-            "email.required" => "The email is required",
-            "email.email" => "Email without correct format",
-            "password.required" => "The password is required",
-        ];
-    }
+    // public function messages()
+    // {
+    //     return [
+    //         "email.required" => "The email is required",
+    //         "email.email" => "Email without correct format",
+    //         "password.required" => "The password is required",
+    //     ];
+    // }
 }
