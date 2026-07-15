@@ -1,64 +1,131 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<div align="center">
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# ☁️ Cloud Storage API
 
-## About Laravel
+**REST API backend for a cloud file storage platform — built with Laravel + Docker**
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+[![Laravel](https://img.shields.io/badge/LARAVEL-FF2D20?style=flat-square&logo=laravel&logoColor=white)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white)](https://php.net)
+[![Docker](https://img.shields.io/badge/DOCKER-2496ED?style=flat-square&logo=docker&logoColor=white)](https://docker.com)
+[![Nginx](https://img.shields.io/badge/NGINX-009639?style=flat-square&logo=nginx&logoColor=white)](https://nginx.org)
+[![MySQL](https://img.shields.io/badge/MYSQL-4479A1?style=flat-square&logo=mysql&logoColor=white)](https://mysql.com)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+</div>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 📌 Overview
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Backend REST API for a cloud file storage platform that handles user authentication, file management, and storage operations. Built with Laravel following RESTful conventions and containerized with Docker + Nginx for consistent local and production environments. Designed to be consumed by the [cloud-storage-client](https://github.com/Rafaelh5z/cloud-storage-client) frontend.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## ✨ Features
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- 🔐 User authentication with Laravel Sanctum / Passport
+- 📁 File upload, download and deletion endpoints
+- 🗂️ Folder and directory management
+- 🔗 Related frontend: [cloud-storage-client](https://github.com/Rafaelh5z/cloud-storage-client)
+- 🐳 Fully containerized with Docker + Nginx
+- 🗄️ Database migrations and seeders included
+- 🧪 PHPUnit test suite
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## 🛠️ Tech Stack
 
-## Contributing
+| Layer | Technology |
+|-------|-----------|
+| Framework | Laravel |
+| Language | PHP |
+| Database | MySQL |
+| Web Server | Nginx |
+| Containerization | Docker + Docker Compose |
+| Testing | PHPUnit |
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 🚀 Getting Started
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Prerequisites
 
-## Security Vulnerabilities
+- Docker & Docker Compose
+- PHP 8+ (for local without Docker)
+- Composer
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Installation with Docker
 
-## License
+```bash
+# Clone the repo
+git clone https://github.com/Rafaelh5z/cloud-storage-api.git
+cd cloud-storage-api
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# Copy environment file
+cp .env.example .env
+
+# Start containers
+docker-compose up -d
+
+# Install dependencies
+docker-compose exec app composer install
+
+# Generate app key
+docker-compose exec app php artisan key:generate
+
+# Run migrations
+docker-compose exec app php artisan migrate --seed
+```
+
+The API will be available at `http://localhost:80`
+
+### Installation without Docker
+
+```bash
+# Install dependencies
+composer install
+
+# Copy and configure environment
+cp .env.example .env
+php artisan key:generate
+
+# Run migrations
+php artisan migrate --seed
+
+# Start local server
+php artisan serve
+```
+
+---
+
+## 📁 Project Structure
+
+```
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/    # API controllers
+│   │   └── Middleware/     # Auth and request middleware
+│   └── Models/             # Eloquent models
+├── config/                 # App configuration
+├── database/
+│   ├── migrations/         # Database schema
+│   └── seeders/            # Initial data
+├── docker-compose/
+│   └── nginx/              # Nginx server config
+├── routes/
+│   └── api.php             # API routes
+├── tests/                  # PHPUnit tests
+├── Dockerfile
+└── docker-compose.yml
+```
+
+---
+
+## 🔗 Related
+
+- **Frontend client:** [cloud-storage-client](https://github.com/Rafaelh5z/cloud-storage-client) — Nuxt 2 + Vue
+
+---
+
+## 👤 Author
+
+**Rafael Herrera** · [GitHub](https://github.com/Rafaelh5z) · [LinkedIn](https://linkedin.com/in/rafael-herrera-sanchez)
